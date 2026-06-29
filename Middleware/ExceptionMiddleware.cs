@@ -23,7 +23,7 @@ public class ExceptionMiddleware
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Erro não tratado: {Message}", ex.Message);
+            _logger.LogError(ex, "Error not handled: {Message}", ex.Message);
             await HandleExceptionAsync(context, ex);
         }
     }
@@ -38,7 +38,7 @@ public class ExceptionMiddleware
             UnauthorizedAccessException => (HttpStatusCode.Unauthorized, ex.Message),
             InvalidOperationException => (HttpStatusCode.BadRequest, ex.Message),
             ArgumentException => (HttpStatusCode.BadRequest, ex.Message),
-            _ => (HttpStatusCode.InternalServerError, "Ocorreu um erro interno no servidor.")
+            _ => (HttpStatusCode.InternalServerError, "An internal server error occurred.")
         };
 
         context.Response.StatusCode = (int)statusCode;

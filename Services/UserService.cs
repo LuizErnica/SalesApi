@@ -26,7 +26,7 @@ public class UserService : IUserService
     {
         var existing = await _repo.GetByEmailAsync(dto.Email);
         if (existing is not null)
-            throw new InvalidOperationException("E-mail já cadastrado.");
+            throw new InvalidOperationException("E-mail already registered.");
 
         var user = new User
         {
@@ -43,7 +43,7 @@ public class UserService : IUserService
     public async Task<UserResponseDto> UpdateAsync(int id, UpdateUserDto dto)
     {
         var user = await _repo.GetByIdAsync(id)
-            ?? throw new KeyNotFoundException($"Usuário {id} não encontrado.");
+            ?? throw new KeyNotFoundException($"User {id} not found.");
 
         if (dto.Name is not null) user.Name = dto.Name;
         if (dto.Email is not null) user.Email = dto.Email;
@@ -57,7 +57,7 @@ public class UserService : IUserService
     public async Task DeleteAsync(int id)
     {
         if (!await _repo.ExistsAsync(id))
-            throw new KeyNotFoundException($"Usuário {id} não encontrado.");
+            throw new KeyNotFoundException($"User {id} not found.");
         await _repo.DeleteAsync(id);
     }
 

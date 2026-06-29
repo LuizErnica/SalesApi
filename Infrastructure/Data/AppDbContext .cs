@@ -66,6 +66,7 @@ public class AppDbContext : DbContext
             Id = 1,
             Name = "Administrador",
             Email = "admin@salesapi.com",
+            // Take it easy about password here, it is just a test program...
             PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin@123"),
             Role = "Admin",
             CreatedAt = new DateTime(2024, 1, 1),

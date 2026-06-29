@@ -38,18 +38,18 @@ public class SaleService : ISaleService
     public async Task<SaleResponseDto> CreateAsync(CreateSaleDto dto)
     {
         if (!await _userRepo.ExistsAsync(dto.UserId))
-            throw new KeyNotFoundException($"Usuário {dto.UserId} não encontrado.");
+            throw new KeyNotFoundException($"User {dto.UserId} not found.");
 
         var sale = new Sale { UserId = dto.UserId, Notes = dto.Notes };
 
         foreach (var itemDto in dto.Items)
         {
             var product = await _productRepo.GetByIdAsync(itemDto.ProductId)
-                ?? throw new KeyNotFoundException($"Produto {itemDto.ProductId} não encontrado.");
+                ?? throw new KeyNotFoundException($"Product {itemDto.ProductId} not found.");
 
             if (product.StockQuantity < itemDto.Quantity)
                 throw new InvalidOperationException(
-                    $"Estoque insuficiente para '{product.Name}'. Disponível: {product.StockQuantity}.");
+                    $"Insufficient stock for '{product.Name}'. Available: {product.StockQuantity}.");
 
             sale.Items.Add(new SaleItem
             {
@@ -75,10 +75,10 @@ public class SaleService : ISaleService
     {
         var validStatuses = new[] { "Pending", "Confirmed", "Cancelled" };
         if (!validStatuses.Contains(status))
-            throw new ArgumentException($"Status inválido. Use: {string.Join(", ", validStatuses)}");
+            throw new ArgumentException($"Invalid status. Use: {string.Join(", ", validStatuses)}");
 
         var sale = await _saleRepo.GetByIdAsync(id)
-            ?? throw new KeyNotFoundException($"Venda {id} não encontrada.");
+            ?? throw new KeyNotFoundException($"Sale {id} not found.");
 
         // Restore stock on cancellation
         if (status == "Cancelled" && sale.Status != "Cancelled")
@@ -104,7 +104,7 @@ public class SaleService : ISaleService
     public async Task DeleteAsync(int id)
     {
         var sale = await _saleRepo.GetByIdAsync(id)
-            ?? throw new KeyNotFoundException($"Venda {id} não encontrada.");
+            ?? throw new KeyNotFoundException($"Sale {id} not found.");
 
         // Restore stock if not cancelled
         if (sale.Status != "Cancelled")

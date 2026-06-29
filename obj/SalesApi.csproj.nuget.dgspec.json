@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Rick\\Projects\\.NET\\ASP.NET\\SalesApi\\SalesApi.csproj": {}
+    "C:\\Rick\\Projects\\.NET\\ASP.NET\\SalesApi\\SalesApi.csproj": {}
   },
   "projects": {
-    "D:\\Rick\\Projects\\.NET\\ASP.NET\\SalesApi\\SalesApi.csproj": {
+    "C:\\Rick\\Projects\\.NET\\ASP.NET\\SalesApi\\SalesApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Rick\\Projects\\.NET\\ASP.NET\\SalesApi\\SalesApi.csproj",
+        "projectUniqueName": "C:\\Rick\\Projects\\.NET\\ASP.NET\\SalesApi\\SalesApi.csproj",
         "projectName": "SalesApi",
-        "projectPath": "D:\\Rick\\Projects\\.NET\\ASP.NET\\SalesApi\\SalesApi.csproj",
+        "projectPath": "C:\\Rick\\Projects\\.NET\\ASP.NET\\SalesApi\\SalesApi.csproj",
         "packagesPath": "C:\\Users\\luize\\.nuget\\packages\\",
-        "outputPath": "D:\\Rick\\Projects\\.NET\\ASP.NET\\SalesApi\\obj\\",
+        "outputPath": "C:\\Rick\\Projects\\.NET\\ASP.NET\\SalesApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -55,11 +55,11 @@
           "dependencies": {
             "BCrypt.Net-Next": {
               "target": "Package",
-              "version": "[4.0.3, )"
+              "version": "[4.2.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[10.0.9, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
@@ -67,25 +67,29 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[10.0.9, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[10.0.9, )"
             },
             "Microsoft.EntityFrameworkCore.Sqlite": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[10.0.9, )"
+            },
+            "SourceGear.sqlite3": {
+              "target": "Package",
+              "version": "[3.50.4.5, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.5.0, )"
+              "version": "[10.2.3, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
-              "version": "[7.0.3, )"
+              "version": "[8.19.1, )"
             }
           },
           "imports": [
@@ -107,7 +111,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.300/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.301/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",

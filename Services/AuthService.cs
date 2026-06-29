@@ -22,13 +22,13 @@ public class AuthService : IAuthService
     public async Task<AuthResponseDto> LoginAsync(LoginDto dto)
     {
         var user = await _userRepo.GetByEmailAsync(dto.Email)
-            ?? throw new UnauthorizedAccessException("E-mail ou senha inválidos.");
+            ?? throw new UnauthorizedAccessException("Invalid e-mail or password.");
 
         if (!user.IsActive)
-            throw new UnauthorizedAccessException("Conta desativada.");
+            throw new UnauthorizedAccessException("Deactivated account.");
 
         if (!BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash))
-            throw new UnauthorizedAccessException("E-mail ou senha inválidos.");
+            throw new UnauthorizedAccessException("Invalid e-mail or password.");
 
         return GenerateToken(user);
     }
@@ -37,7 +37,7 @@ public class AuthService : IAuthService
     {
         var existing = await _userRepo.GetByEmailAsync(dto.Email);
         if (existing is not null)
-            throw new InvalidOperationException("E-mail já cadastrado.");
+            throw new InvalidOperationException("E-mail already registered.");
 
         var user = new User
         {

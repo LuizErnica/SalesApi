@@ -13,7 +13,7 @@ public class ProductsController : ControllerBase
 
     public ProductsController(IProductService productService) => _productService = productService;
 
-    /// <summary>Lista todos os produtos</summary>
+    /// <summary>List all products</summary>
     [HttpGet]
     public async Task<ActionResult<IEnumerable<ProductResponseDto>>> GetAll()
     {
@@ -21,15 +21,15 @@ public class ProductsController : ControllerBase
         return Ok(products);
     }
 
-    /// <summary>Busca produto por ID</summary>
+    /// <summary>Get product by ID</summary>
     [HttpGet("{id:int}")]
     public async Task<ActionResult<ProductResponseDto>> GetById(int id)
     {
         var product = await _productService.GetByIdAsync(id);
-        return product is null ? NotFound(new { message = $"Produto {id} não encontrado." }) : Ok(product);
+        return product is null ? NotFound(new { message = $"Product {id} not found." }) : Ok(product);
     }
 
-    /// <summary>Busca produtos por categoria</summary>
+    /// <summary>Get products by category</summary>
     [HttpGet("category/{category}")]
     public async Task<ActionResult<IEnumerable<ProductResponseDto>>> GetByCategory(string category)
     {
@@ -37,7 +37,7 @@ public class ProductsController : ControllerBase
         return Ok(products);
     }
 
-    /// <summary>Cria novo produto (Admin)</summary>
+    /// <summary>Create new product (Admin)</summary>
     [HttpPost]
     [Authorize(Roles = "Admin")]
     public async Task<ActionResult<ProductResponseDto>> Create([FromBody] CreateProductDto dto)
@@ -46,7 +46,7 @@ public class ProductsController : ControllerBase
         return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
     }
 
-    /// <summary>Atualiza produto (Admin)</summary>
+    /// <summary>Update product (Admin)</summary>
     [HttpPut("{id:int}")]
     [Authorize(Roles = "Admin")]
     public async Task<ActionResult<ProductResponseDto>> Update(int id, [FromBody] UpdateProductDto dto)
@@ -62,7 +62,7 @@ public class ProductsController : ControllerBase
         }
     }
 
-    /// <summary>Remove produto (Admin)</summary>
+    /// <summary>Delete product (Admin)</summary>
     [HttpDelete("{id:int}")]
     [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Delete(int id)

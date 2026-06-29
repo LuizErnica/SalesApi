@@ -14,7 +14,7 @@ public class SalesController : ControllerBase
 
     public SalesController(ISaleService saleService) => _saleService = saleService;
 
-    /// <summary>Lista todas as vendas (Admin)</summary>
+    /// <summary>List all sales (Admin)</summary>
     [HttpGet]
     [Authorize(Roles = "Admin")]
     public async Task<ActionResult<IEnumerable<SaleResponseDto>>> GetAll()
@@ -23,12 +23,12 @@ public class SalesController : ControllerBase
         return Ok(sales);
     }
 
-    /// <summary>Busca venda por ID</summary>
+    /// <summary>Get sale by ID</summary>
     [HttpGet("{id:int}")]
     public async Task<ActionResult<SaleResponseDto>> GetById(int id)
     {
         var sale = await _saleService.GetByIdAsync(id);
-        if (sale is null) return NotFound(new { message = $"Venda {id} não encontrada." });
+        if (sale is null) return NotFound(new { message = $"Sale {id} not found." });
 
         var currentUserId = int.Parse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value ?? "0");
         if (!User.IsInRole("Admin") && sale.UserId != currentUserId)
@@ -37,7 +37,7 @@ public class SalesController : ControllerBase
         return Ok(sale);
     }
 
-    /// <summary>Lista vendas de um usuário</summary>
+    /// <summary>List sales from an user</summary>
     [HttpGet("user/{userId:int}")]
     public async Task<ActionResult<IEnumerable<SaleResponseDto>>> GetByUser(int userId)
     {
@@ -49,11 +49,11 @@ public class SalesController : ControllerBase
         return Ok(sales);
     }
 
-    /// <summary>Cria nova venda</summary>
+    /// <summary>Create new sale</summary>
     [HttpPost]
     public async Task<ActionResult<SaleResponseDto>> Create([FromBody] CreateSaleDto dto)
     {
-        // Customer só pode criar venda para si mesmo
+        // Customer can only create sale for himself
         var currentUserId = int.Parse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value ?? "0");
         if (!User.IsInRole("Admin") && dto.UserId != currentUserId)
             return Forbid();
@@ -73,7 +73,7 @@ public class SalesController : ControllerBase
         }
     }
 
-    /// <summary>Atualiza status da venda (Admin)</summary>
+    /// <summary>Update sale status (Admin)</summary>
     [HttpPatch("{id:int}/status")]
     [Authorize(Roles = "Admin")]
     public async Task<ActionResult<SaleResponseDto>> UpdateStatus(int id, [FromBody] UpdateSaleStatusDto dto)
@@ -93,7 +93,7 @@ public class SalesController : ControllerBase
         }
     }
 
-    /// <summary>Remove venda (Admin)</summary>
+    /// <summary>Delete sale (Admin)</summary>
     [HttpDelete("{id:int}")]
     [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Delete(int id)

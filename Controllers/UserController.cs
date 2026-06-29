@@ -14,7 +14,7 @@ public class UsersController : ControllerBase
 
     public UsersController(IUserService userService) => _userService = userService;
 
-    /// <summary>Lista todos os usuários (Admin)</summary>
+    /// <summary>List all users (Admin)</summary>
     [HttpGet]
     [Authorize(Roles = "Admin")]
     public async Task<ActionResult<IEnumerable<UserResponseDto>>> GetAll()
@@ -23,20 +23,20 @@ public class UsersController : ControllerBase
         return Ok(users);
     }
 
-    /// <summary>Busca usuário por ID</summary>
+    /// <summary>Get user by ID</summary>
     [HttpGet("{id:int}")]
     public async Task<ActionResult<UserResponseDto>> GetById(int id)
     {
-        // Customer só pode ver o próprio perfil
+        // Customer can see only his own profile
         var currentUserId = int.Parse(User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value ?? "0");
         if (!User.IsInRole("Admin") && currentUserId != id)
             return Forbid();
 
         var user = await _userService.GetByIdAsync(id);
-        return user is null ? NotFound(new { message = $"Usuário {id} não encontrado." }) : Ok(user);
+        return user is null ? NotFound(new { message = $"User {id} not found." }) : Ok(user);
     }
 
-    /// <summary>Cria novo usuário (Admin)</summary>
+    /// <summary>Create new user (Admin)</summary>
     [HttpPost]
     [Authorize(Roles = "Admin")]
     public async Task<ActionResult<UserResponseDto>> Create([FromBody] CreateUserDto dto)
@@ -52,7 +52,7 @@ public class UsersController : ControllerBase
         }
     }
 
-    /// <summary>Atualiza usuário</summary>
+    /// <summary>Update user</summary>
     [HttpPut("{id:int}")]
     public async Task<ActionResult<UserResponseDto>> Update(int id, [FromBody] UpdateUserDto dto)
     {
@@ -71,7 +71,7 @@ public class UsersController : ControllerBase
         }
     }
 
-    /// <summary>Remove usuário (Admin)</summary>
+    /// <summary>Delete user (Admin)</summary>
     [HttpDelete("{id:int}")]
     [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Delete(int id)

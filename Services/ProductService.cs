@@ -46,7 +46,7 @@ public class ProductService : IProductService
     public async Task<ProductResponseDto> UpdateAsync(int id, UpdateProductDto dto)
     {
         var product = await _repo.GetByIdAsync(id)
-            ?? throw new KeyNotFoundException($"Produto {id} não encontrado.");
+            ?? throw new KeyNotFoundException($"Product {id} not found.");
 
         if (dto.Name is not null) product.Name = dto.Name;
         if (dto.Description is not null) product.Description = dto.Description;
@@ -62,7 +62,7 @@ public class ProductService : IProductService
     public async Task DeleteAsync(int id)
     {
         if (!await _repo.ExistsAsync(id))
-            throw new KeyNotFoundException($"Produto {id} não encontrado.");
+            throw new KeyNotFoundException($"Product {id} not found.");
         await _repo.DeleteAsync(id);
     }
 

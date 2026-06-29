@@ -36,7 +36,7 @@ public class UserRepository : IUserRepository
     public async Task DeleteAsync(int id)
     {
         var user = await _ctx.Users.FindAsync(id)
-            ?? throw new KeyNotFoundException($"Usuário {id} não encontrado.");
+            ?? throw new KeyNotFoundException($"User {id} not found.");
         _ctx.Users.Remove(user);
         await _ctx.SaveChangesAsync();
     }
@@ -79,7 +79,7 @@ public class ProductRepository : IProductRepository
     public async Task DeleteAsync(int id)
     {
         var product = await _ctx.Products.FindAsync(id)
-            ?? throw new KeyNotFoundException($"Produto {id} não encontrado.");
+            ?? throw new KeyNotFoundException($"Product {id} not found.");
         _ctx.Products.Remove(product);
         await _ctx.SaveChangesAsync();
     }
@@ -131,7 +131,7 @@ public class SaleRepository : ISaleRepository
     public async Task DeleteAsync(int id)
     {
         var sale = await _ctx.Sales.FindAsync(id)
-            ?? throw new KeyNotFoundException($"Venda {id} não encontrada.");
+            ?? throw new KeyNotFoundException($"Sale {id} not found.");
         _ctx.Sales.Remove(sale);
         await _ctx.SaveChangesAsync();
     }

@@ -12,7 +12,7 @@ public class AuthController : ControllerBase
 
     public AuthController(IAuthService authService) => _authService = authService;
 
-    /// <summary>Login e obtenção de token JWT</summary>
+    /// <summary>Login and JWT token acquisition</summary>
     [HttpPost("login")]
     public async Task<ActionResult<AuthResponseDto>> Login([FromBody] LoginDto dto)
     {
@@ -27,7 +27,7 @@ public class AuthController : ControllerBase
         }
     }
 
-    /// <summary>Registro de novo usuário (Customer)</summary>
+    /// <summary>New user registry (Customer)</summary>
     [HttpPost("register")]
     public async Task<ActionResult<AuthResponseDto>> Register([FromBody] RegisterDto dto)
     {
