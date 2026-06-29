@@ -1,0 +1,8 @@
+d:\Rick\Projects\.NET\ASP.NET\SalesApi\obj\Debug\net8.0\SalesApi.csproj.AssemblyReference.cache
+d:\Rick\Projects\.NET\ASP.NET\SalesApi\obj\Debug\net8.0\rpswa.dswa.cache.json
+d:\Rick\Projects\.NET\ASP.NET\SalesApi\obj\Debug\net8.0\SalesApi.GeneratedMSBuildEditorConfig.editorconfig
+d:\Rick\Projects\.NET\ASP.NET\SalesApi\obj\Debug\net8.0\SalesApi.AssemblyInfoInputs.cache
+d:\Rick\Projects\.NET\ASP.NET\SalesApi\obj\Debug\net8.0\SalesApi.AssemblyInfo.cs
+d:\Rick\Projects\.NET\ASP.NET\SalesApi\obj\Debug\net8.0\SalesApi.csproj.CoreCompileInputs.cache
+d:\Rick\Projects\.NET\ASP.NET\SalesApi\obj\Debug\net8.0\SalesApi.MvcApplicationPartsAssemblyInfo.cs
+d:\Rick\Projects\.NET\ASP.NET\SalesApi\obj\Debug\net8.0\SalesApi.MvcApplicationPartsAssemblyInfo.cache
