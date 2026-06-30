@@ -175,12 +175,10 @@ C:\Rick\Projects\.NET\ASP.NET\SalesApi\bin\Debug\net10.0\Microsoft.OpenApi.dll
 C:\Rick\Projects\.NET\ASP.NET\SalesApi\bin\Debug\net10.0\Microsoft.VisualStudio.SolutionPersistence.dll
 C:\Rick\Projects\.NET\ASP.NET\SalesApi\bin\Debug\net10.0\Mono.TextTemplating.dll
 C:\Rick\Projects\.NET\ASP.NET\SalesApi\bin\Debug\net10.0\Newtonsoft.Json.dll
+C:\Rick\Projects\.NET\ASP.NET\SalesApi\bin\Debug\net10.0\Scalar.AspNetCore.dll
 C:\Rick\Projects\.NET\ASP.NET\SalesApi\bin\Debug\net10.0\SQLitePCLRaw.batteries_v2.dll
 C:\Rick\Projects\.NET\ASP.NET\SalesApi\bin\Debug\net10.0\SQLitePCLRaw.core.dll
 C:\Rick\Projects\.NET\ASP.NET\SalesApi\bin\Debug\net10.0\SQLitePCLRaw.provider.e_sqlite3.dll
-C:\Rick\Projects\.NET\ASP.NET\SalesApi\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Rick\Projects\.NET\ASP.NET\SalesApi\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Rick\Projects\.NET\ASP.NET\SalesApi\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Rick\Projects\.NET\ASP.NET\SalesApi\bin\Debug\net10.0\System.CodeDom.dll
 C:\Rick\Projects\.NET\ASP.NET\SalesApi\bin\Debug\net10.0\System.Composition.AttributedModel.dll
 C:\Rick\Projects\.NET\ASP.NET\SalesApi\bin\Debug\net10.0\System.Composition.Convention.dll

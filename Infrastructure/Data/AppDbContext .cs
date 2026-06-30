@@ -12,6 +12,9 @@ public class AppDbContext : DbContext
     public DbSet<Sale> Sales => Set<Sale>();
     public DbSet<SaleItem> SaleItems => Set<SaleItem>();
 
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        => optionsBuilder.UseSqlite("Data Source=SalesApi.db;Cache=Shared");
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // User
@@ -67,7 +70,8 @@ public class AppDbContext : DbContext
             Name = "Administrador",
             Email = "admin@salesapi.com",
             // Take it easy about password here, it is just a test program...
-            PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin@123"),
+            // PasswordHash = BCrypt.Net.BCrypt.HashPassword("Admin@123"),
+            PasswordHash = $"$2a$11$CoELCN.qy.ZexXFtwdgQD.nZyssBfpPYVRe6JGk4zVq57kgcK6/Ba",
             Role = "Admin",
             CreatedAt = new DateTime(2024, 1, 1),
             IsActive = true
